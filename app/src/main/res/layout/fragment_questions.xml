@@ -1,89 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <ScrollView
+
+    <data>
+        <variable
+            name="questionsViewModel"
+            type="com.example.exam.questions.QuestionsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:textSize="@dimen/question_text_size"
-                android:textStyle="bold"
-                tools:text="Что означает показание светофора один желтый и один зеленый сигналы (п.127)"/>
-            <RadioGroup
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/variant_1"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/question"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных - со скоростью не более 25 км/ч" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:textSize="@dimen/question_text_size"
+                    android:textStyle="bold"
+                    tools:text="Что означает показание светофора один желтый и один зеленый сигналы (п.127)" />
 
-                <RadioButton
-                    android:id="@+id/variant_2"
+                <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 20 км/ч" />
+                    android:layout_height="match_parent"
+                    android:padding="16dp">
 
-                <RadioButton
-                    android:id="@+id/variant_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 25 км/ч" />
+                    <RadioButton
+                        android:id="@+id/variant_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных - со скоростью не более 25 км/ч" />
 
-                <RadioButton
-                    android:id="@+id/variant_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />
+                    <RadioButton
+                        android:id="@+id/variant_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 20 км/ч" />
 
-                <RadioButton
-                    android:id="@+id/variant_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />
+                    <RadioButton
+                        android:id="@+id/variant_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 25 км/ч" />
 
-            </RadioGroup>
-        </LinearLayout>
-    </ScrollView>
+                    <RadioButton
+                        android:id="@+id/variant_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />
 
-    <Button
-        android:id="@+id/cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@android:string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+                    <RadioButton
+                        android:id="@+id/variant_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/cancel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
