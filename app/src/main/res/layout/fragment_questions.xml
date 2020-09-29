@@ -35,6 +35,7 @@
                     android:layout_marginBottom="16dp"
                     android:textSize="@dimen/question_text_size"
                     android:textStyle="bold"
+                    android:text="BLALALALLALA"
                     tools:text="Что означает показание светофора один желтый и один зеленый сигналы (п.127)" />
 
                 <RadioGroup
@@ -46,6 +47,7 @@
                         android:id="@+id/variant_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="BLALALALLALA"
                         tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных - со скоростью не более 25 км/ч" />
 
                     <RadioButton
@@ -53,6 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:text="BLALALALLALA"
                         tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 20 км/ч" />
 
                     <RadioButton
@@ -67,6 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:text="BLALALALLALA"
                         tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />
 
                     <RadioButton
@@ -74,6 +78,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:text="BLALALALLALA"
                         tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />
 
                 </RadioGroup>

@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.example.exam.R
 import com.example.exam.databinding.FragmentStartBinding
 
@@ -23,7 +25,15 @@ class StartFragment : Fragment() {
 
         binding.setLifecycleOwner(this)
         binding.startViewModel = startViewModel
+
+        startViewModel.navigateToQuestions.observe(viewLifecycleOwner, Observer {
+            mode -> mode?.let {
+            this.findNavController().navigate(
+                StartFragmentDirections.actionStartFragmentToQuestionsFragment(mode)
+            )
+            startViewModel.doneNavigating()
+        }
+        })
         return binding.root
-//        return null
     }
 }

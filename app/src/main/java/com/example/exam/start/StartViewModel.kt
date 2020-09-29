@@ -16,16 +16,20 @@ class StartViewModel(application: Application): AndroidViewModel(application) {
     val navigateToQuestions: LiveData<Int>
     get() = _navigateToQuestions
 
+    private val _mode = MutableLiveData<Int>()
+
+    val mode: LiveData<Int>
+    get() = _mode
+
     fun onSetMode(view: View) {
         when (view.id) {
-            R.id.order_mode -> _navigateToQuestions.value = 0
-            R.id.random_mode -> _navigateToQuestions.value = 1
+            R.id.order_mode -> _mode.value = 0
+            R.id.random_mode -> _mode.value = 1
         }
-        Toast.makeText(getApplication(), _navigateToQuestions.value.toString(), Toast.LENGTH_SHORT).show()
     }
 
     fun onStartExam() {
-
+        _navigateToQuestions.value = 1
     }
 
     fun doneNavigating() {
