@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Exam</string>
+    <string name="order">Order</string>
+    <string name="random">Random</string>
+    <string name="pte_name">PTE</string>
+    <string name="start">Start</string>
+    <string name="cancel">Cancel</string>
+    <string name="Next" />
+    <string name="next">Next</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
