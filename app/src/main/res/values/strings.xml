@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Exam</string>
-    <string name="order">Order</string>
-    <string name="random">Random</string>
-    <string name="pte_name">PTE</string>
-    <string name="start">Start</string>
-    <string name="cancel">Cancel</string>
-    <string name="Next" />
-    <string name="next">Next</string>
+    <string name="order">По порядку</string>
+    <string name="random">Случайно</string>
+    <string name="pte_name">ПТЭ экзамен</string>
+    <string name="start">Начать</string>
+    <string name="cancel">Закончить</string>
+    <string name="next">Следующий</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="check_string">Проверить</string>
+    <string name="question_id">Вопрос %d</string>
+    <string name="finish">Ок</string>
 </resources>

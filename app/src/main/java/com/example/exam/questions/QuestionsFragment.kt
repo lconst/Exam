@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.exam.R
+import com.example.exam.database.QuestionsDatabase
 import com.example.exam.databinding.FragmentQuestionsBinding
 import com.example.exam.databinding.FragmentStartBinding
 import com.example.exam.start.StartFragmentDirections
@@ -26,21 +27,27 @@ class QuestionsFragment: Fragment() {
 
         val binding: FragmentQuestionsBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_questions, container, false)
 
+        val arguments = QuestionsFragmentArgs.fromBundle(requireArguments())
         val application = requireNotNull(this.activity).application
-        val questionsViewModelFactory = QuestionsViewModelFactory(application)
+        val database = QuestionsDatabase.getInstance(application).questionsDatabaseDao
+        val questionsViewModelFactory = QuestionsViewModelFactory(arguments.mode, database, application)
         val questionsViewModel = ViewModelProviders.of(this, questionsViewModelFactory).get(QuestionsViewModel::class.java)
 
         binding.setLifecycleOwner(this)
+
         binding.questionsViewModel = questionsViewModel
 
-//        questionsViewModel.navigateToQuestions.observe(viewLifecycleOwner, Observer {
-//                mode -> mode?.let {
-//            this.findNavController().navigate(
-//                StartFragmentDirections.actionStartFragmentToQuestionsFragment(mode)
-//            )
-//            questionsViewModel.doneNavigating()
-//        }
-//        })
+
+        questionsViewModel.navigateToFinish.observe(viewLifecycleOwner, Observer {mode ->
+            mode?.let {
+                val action = QuestionsFragmentDirections.actionQuestionsFragmentToFinishFragment()
+                action.setCorrectAnswers(questionsViewModel.correctAnswers)
+                action.setCountAnswers(questionsViewModel.countAnswers)
+                action.setCountQuestions(questionsViewModel.countAnswers)
+                this.findNavController().navigate(action)
+                questionsViewModel.doneNavigating()
+            }
+        })
         return binding.root
 
 //        return super.onCreateView(inflater, container, savedInstanceState)

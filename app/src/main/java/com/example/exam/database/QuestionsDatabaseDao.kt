@@ -6,6 +6,6 @@ import androidx.room.Query
 @Dao
 interface QuestionsDatabaseDao {
 
-    @Query("SELECT * FROM Questions WHERE questionId = :key")
+    @Query("SELECT * FROM Questions WHERE Number = :key")
     fun get(key: Int): Question?
 }

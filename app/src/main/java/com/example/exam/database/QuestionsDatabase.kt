@@ -21,9 +21,9 @@ abstract class QuestionsDatabase : RoomDatabase() {
                 if (instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        QuestionsDatabase::class.java, "Exam.db"
+                        QuestionsDatabase::class.java, "Exam1.db"
                     )
-                        .createFromAsset("Exam.db")
+                        .createFromAsset("Exam1.db")
                         .build()
                     INSTANCE = instance
                 }

@@ -20,6 +20,9 @@ class StartViewModel(application: Application): AndroidViewModel(application) {
 
     val mode: LiveData<Int>
     get() = _mode
+    init {
+        _mode.value = 0
+    }
 
     fun onSetMode(view: View) {
         when (view.id) {

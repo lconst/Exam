@@ -15,24 +15,28 @@ import com.example.exam.databinding.FragmentStartBinding
 
 class StartFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        val binding: FragmentStartBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_start, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val binding: FragmentStartBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_start, container, false)
 
         val application = requireNotNull(this.activity).application
         val startViewModelFactory = StartViewModelFactory(application)
-        val startViewModel = ViewModelProviders.of(this, startViewModelFactory).get(StartViewModel::class.java)
+        val startViewModel =
+            ViewModelProviders.of(this, startViewModelFactory).get(StartViewModel::class.java)
 
         binding.setLifecycleOwner(this)
         binding.startViewModel = startViewModel
 
-        startViewModel.navigateToQuestions.observe(viewLifecycleOwner, Observer {
-            mode -> mode?.let {
-            this.findNavController().navigate(
-                StartFragmentDirections.actionStartFragmentToQuestionsFragment(mode)
-            )
-            startViewModel.doneNavigating()
-        }
+        startViewModel.navigateToQuestions.observe(viewLifecycleOwner, Observer { mode ->
+            mode?.let {
+                this.findNavController().navigate(
+                    StartFragmentDirections.actionStartFragmentToQuestionsFragment(startViewModel.mode.value!!)
+                )
+                startViewModel.doneNavigating()
+            }
         })
         return binding.root
     }
