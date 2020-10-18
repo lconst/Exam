@@ -38,8 +38,8 @@ class FinishFragment: Fragment() {
 
         binding.finishViewModel = finishViewModel
 
-        finishViewModel.navigateToStart.observe(viewLifecycleOwner, Observer {mode ->
-            mode?.let {
+        finishViewModel.navigateToStart.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
                 val action = FinishFragmentDirections.actionFinishFragmentToStartFragment()
                 this.findNavController().navigate(action)
                 finishViewModel.doneNavigating()

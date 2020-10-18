@@ -38,8 +38,8 @@ class QuestionsFragment: Fragment() {
         binding.questionsViewModel = questionsViewModel
 
 
-        questionsViewModel.navigateToFinish.observe(viewLifecycleOwner, Observer {mode ->
-            mode?.let {
+        questionsViewModel.navigateToFinish.observe(viewLifecycleOwner, Observer {
+            if (it == true) {
                 val action = QuestionsFragmentDirections.actionQuestionsFragmentToFinishFragment()
                 action.setCorrectAnswers(questionsViewModel.correctAnswers)
                 action.setCountAnswers(questionsViewModel.countAnswers)
@@ -50,6 +50,5 @@ class QuestionsFragment: Fragment() {
         })
         return binding.root
 
-//        return super.onCreateView(inflater, container, savedInstanceState)
     }
 }

@@ -25,14 +25,15 @@ class QuestionsViewModel(
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val _navigateToFinish = MutableLiveData<Int>()
+    private val _navigateToFinish = MutableLiveData<Boolean>()
 
-    val navigateToFinish: LiveData<Int>
+    val navigateToFinish: LiveData<Boolean>
         get() = _navigateToFinish
 
     private var question = MutableLiveData<Question?>()
 
     val questionString = MutableLiveData<String?>()
+
     val variant_1_Srting = MutableLiveData<String?>()
     val variant_1_visible = MutableLiveData<Int>()
     val variant_1_color = MutableLiveData<Int>()
@@ -189,10 +190,10 @@ class QuestionsViewModel(
     }
 
     fun onFinish() {
-        _navigateToFinish.value = 1
+        _navigateToFinish.value = true
     }
 
     fun doneNavigating() {
-        _navigateToFinish.value = null
+        _navigateToFinish.value = false
     }
 }

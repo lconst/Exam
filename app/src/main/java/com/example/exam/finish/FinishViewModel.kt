@@ -18,18 +18,18 @@ class FinishViewModel(
         totalResultString.value = ("Правильных ответов $correctAnswers из $countAnswers вопросов (" + String.format("%.2f", percent) + " %)")
     }
 
-    private val _navigateToStart = MutableLiveData<Int>()
+    private val _navigateToStart = MutableLiveData<Boolean>()
 
-    val navigateToStart: LiveData<Int>
+    val navigateToStart: LiveData<Boolean>
         get() = _navigateToStart
 
 
     fun onOk() {
-        _navigateToStart.value = 1
+        _navigateToStart.value = true
     }
 
     fun doneNavigating() {
-        _navigateToStart.value = null
+        _navigateToStart.value = false
     }
 
 }
