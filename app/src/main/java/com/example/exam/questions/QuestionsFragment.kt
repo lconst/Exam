@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.exam.R
 import com.example.exam.database.QuestionsDatabase
+import com.example.exam.databinding.ContentQuestionsBinding
 import com.example.exam.databinding.FragmentQuestionsBinding
 import com.example.exam.databinding.FragmentStartBinding
 import com.example.exam.start.StartFragmentDirections

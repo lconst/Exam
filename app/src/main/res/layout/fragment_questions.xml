@@ -10,164 +10,24 @@
             type="com.example.exam.questions.QuestionsViewModel" />
     </data>
 
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toTopOf="parent">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/questionId"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{questionsViewModel.questionId}"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <include
+                layout="@layout/content_questions"
+                app:questionsViewModel="@{questionsViewModel}" />
 
-                <TextView
-                    android:id="@+id/question"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="@{questionsViewModel.questionString}"
-                    android:textSize="@dimen/question_text_size"
-                    android:textStyle="bold"
-                    tools:text="Что означает показание светофора один желтый и один зеленый сигналы (п.127)" />
-
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="16dp">
-
-                    <RadioButton
-                        android:id="@+id/variant_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:checked="@{questionsViewModel.variant_1_checked}"
-                        android:onClick="@{(view) -> questionsViewModel.onSetAnswer(view)}"
-                        android:text="@{questionsViewModel.variant_1_Srting}"
-                        android:textColor="@{questionsViewModel.variant_1_color}"
-                        android:textSize="16sp"
-                        android:visibility="@{questionsViewModel.variant_1_visible}"
-                        tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных - со скоростью не более 25 км/ч" />
-
-                    <RadioButton
-                        android:id="@+id/variant_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:checked="@{questionsViewModel.variant_2_checked}"
-                        android:onClick="@{(view) -> questionsViewModel.onSetAnswer(view)}"
-                        android:text="@{questionsViewModel.variant_2_Srting}"
-                        android:textColor="@{questionsViewModel.variant_2_color}"
-                        android:textSize="16sp"
-                        android:visibility="@{questionsViewModel.variant_2_visible}"
-                        tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 20 км/ч" />
-
-                    <RadioButton
-                        android:id="@+id/variant_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:checked="@{questionsViewModel.variant_3_checked}"
-                        android:onClick="@{(view) -> questionsViewModel.onSetAnswer(view)}"
-                        android:text="@{questionsViewModel.variant_3_Srting}"
-                        android:textColor="@{questionsViewModel.variant_3_color}"
-                        android:textSize="16sp"
-                        android:visibility="@{questionsViewModel.variant_3_visible}"
-                        tools:text="test" />
-                    <!--                        tools:text="разрешается проследование светофора со скоростью не более 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не более 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не более 25 км/ч" />-->
-
-                    <RadioButton
-                        android:id="@+id/variant_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:checked="@{questionsViewModel.variant_3_checked}"
-                        android:onClick="@{(view) -> questionsViewModel.onSetAnswer(view)}"
-                        android:text="@{questionsViewModel.variant_4_Srting}"
-                        android:textColor="@{questionsViewModel.variant_4_color}"
-                        android:textSize="16sp"
-                        android:visibility="@{questionsViewModel.variant_4_visible}"
-                        tools:text="test" />
-                    <!--                        tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />-->
-
-                    <RadioButton
-                        android:id="@+id/variant_5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:checked="@{questionsViewModel.variant_5_checked}"
-                        android:onClick="@{(view) -> questionsViewModel.onSetAnswer(view)}"
-                        android:text="@{questionsViewModel.variant_5_Srting}"
-                        android:textColor="@{questionsViewModel.variant_5_color}"
-                        android:textSize="16sp"
-                        android:visibility="@{questionsViewModel.variant_5_visible}"
-                        tools:text="test" />
-                    <!--                        tools:text="разрешается проследование светофора со скоростью не менее 60 км/ч, готовностью проследовать следующий светофор с показанием один желтый сигнал со скоростью не менее 35 км/ч, а на наземных и приравненных к ним участках - со скоростью не менее 25 км/ч" />-->
-
-                </RadioGroup>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-                <Button
-                    android:id="@+id/cancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> questionsViewModel.onFinish()}"
-                    android:text="@string/cancel"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <Button
-                    android:id="@+id/check"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> questionsViewModel.onCheck()}"
-                    android:text="@string/check_string"
-                    android:textSize="20sp"
-                    android:visibility="@{questionsViewModel.checkVisible}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-                <Button
-                    android:id="@+id/next"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{() -> questionsViewModel.onNext()}"
-                    android:text="@string/next"
-                    android:textSize="20sp"
-                    android:visibility="@{questionsViewModel.nextVisible}"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:visibility="gone" />
-            </LinearLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

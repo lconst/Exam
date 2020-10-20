@@ -12,7 +12,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.exam.R
 import com.example.exam.database.QuestionsDatabase
 import com.example.exam.databinding.FragmentFinishBinding
-import com.example.exam.databinding.FragmentQuestionsBinding
 import com.example.exam.questions.QuestionsFragmentArgs
 import com.example.exam.questions.QuestionsFragmentDirections
 import com.example.exam.questions.QuestionsViewModel
